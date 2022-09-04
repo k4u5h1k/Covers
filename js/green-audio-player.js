@@ -619,6 +619,7 @@ var GreenAudioPlayer = /*#__PURE__*/function () {
 
       for (var i = 0; i < players.length; i++) {
         GreenAudioPlayer.pausePlayer(players[i]);
+        players[i].currentTime = 0
       }
     }
   }]);

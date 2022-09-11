@@ -160,13 +160,13 @@ var GreenAudioPlayer = /*#__PURE__*/function () {
           var listener = self[handleMethod].bind(self);
           window.addEventListener('touchmove', listener, false);
 
-          if (self.currentlyDragged.parentElement.parentElement === self.sliders[0]) {
+          if (self.currentlyDragged.target.parentElement.parentElement === self.sliders[0]) {
             self.paused = self.player.paused;
             if (self.paused === false) self.togglePlay();
           }
 
           window.addEventListener('touchend', function () {
-            if (self.currentlyDragged !== false && self.currentlyDragged.parentElement.parentElement === self.sliders[0] && self.paused !== self.player.paused) {
+            if (self.currentlyDragged !== false && self.paused !== self.player.paused) {
               self.togglePlay();
             }
 
@@ -191,8 +191,8 @@ var GreenAudioPlayer = /*#__PURE__*/function () {
         self.playPauseBtn.setAttribute('aria-label', self.labels.play);
         self.hasSetAttribute(self.playPauseBtn, 'title', self.labels.play);
       });
-      window.addEventListener('resize', self.directionAware.bind(self));
-      window.addEventListener('scroll', self.directionAware.bind(self));
+      // window.addEventListener('resize', self.directionAware.bind(self));
+      // window.addEventListener('scroll', self.directionAware.bind(self));
 
       for (var i = 0; i < this.sliders.length; i++) {
         var pin = this.sliders[i].querySelector('.pin');
@@ -619,7 +619,7 @@ var GreenAudioPlayer = /*#__PURE__*/function () {
 
       for (var i = 0; i < players.length; i++) {
         GreenAudioPlayer.pausePlayer(players[i]);
-        players[i].currentTime = 0
+        // players[i].currentTime = 0
       }
     }
   }]);

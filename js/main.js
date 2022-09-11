@@ -10,8 +10,7 @@
           </div>
           <div class="col-md-8 col-lg-6">
               <div class="player float-start">
-                <audio>
-                  <source src="${song['link']}" type="audio/mp3">
+                <audio src="${song['link']}">
                 </audio>
               </div>
           </div>
